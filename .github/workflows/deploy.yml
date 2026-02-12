@@ -1,0 +1,29 @@
+name: Deploy Portfolio to VPS
+
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Deploy to VPS
+      uses: appleboy/ssh-action@v0.1.5
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          cd /var/www/portfolio
+          git fetch --all
+          git reset --hard origin/main
+          git pull origin main
+          chown -R www-data:www-data /var/www/portfolio
+          chmod -R 755 /var/www/portfolio
+          systemctl reload nginx || systemctl restart nginx
+          echo "✅ Deployment complete!"
