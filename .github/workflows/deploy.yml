@@ -19,11 +19,38 @@ jobs:
         username: ${{ secrets.VPS_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
+          echo "📂 Current directory:"
+          pwd
+          
+          echo "🔧 Configuring git safe directory..."
+          git config --global --add safe.directory /var/www/portfolio
+          
+          echo "📁 Moving to portfolio directory..."
           cd /var/www/portfolio
+          
+          echo "📍 Current git commit:"
+          git log -1 --oneline
+          
+          echo "🔄 Fetching latest changes..."
           git fetch --all
+          
+          echo "🔄 Resetting to origin/main..."
           git reset --hard origin/main
+          
+          echo "📥 Pulling latest changes..."
           git pull origin main
+          
+          echo "📍 New git commit:"
+          git log -1 --oneline
+          
+          echo "🔧 Setting permissions..."
           chown -R www-data:www-data /var/www/portfolio
           chmod -R 755 /var/www/portfolio
+          
+          echo "🔄 Reloading Nginx..."
           systemctl reload nginx || systemctl restart nginx
+          
+          echo "📂 Files in portfolio directory:"
+          ls -la --color=always
+          
           echo "✅ Deployment complete!"
