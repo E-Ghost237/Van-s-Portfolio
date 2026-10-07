@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════════════════════
-   VAN NISTEROOYL — PORTFOLIO · interactions & animations
+   VAN NISTEROOYL · PORTFOLIO · interactions & animations
    Vanilla JS, zero dependencies. Everything is failure-tolerant:
    each feature is isolated so one error can never blank the page.
    ════════════════════════════════════════════════════════════════════ */
@@ -44,7 +44,7 @@
 
       const boot = [
         { cmd: "whoami" },
-        { out: "van.nisterooyl — full-stack developer" },
+        { out: "van.nisterooyl · full-stack developer" },
         { cmd: "boot portfolio --modules" },
         { out: "[frontend] [backend] [cloud] [mobile] [ai] ✓", hi: true },
         { cmd: "launch" },
@@ -257,13 +257,13 @@
 
       const LINES = [
         { cmd: "whoami" },
-        { out: "van — full-stack developer · douala, cm" },
+        { out: "van · full-stack developer · douala, cm" },
         { cmd: "cat stack.txt" },
-        { out: "angular · next.js · fastapi · laravel · flutter" },
+        { out: "angular · next.js · fastapi · laravel · flutter · postgres" },
         { cmd: "ls ~/infra" },
         { out: "docker/  terraform/  aws/  linux/  git/", hi: true },
         { cmd: "ai --status" },
-        { out: "● online — multiplier: excellent", hi: true },
+        { out: "● online · multiplier: excellent", hi: true },
         { cmd: "./ship.sh" },
         { out: "building… ✓  testing… ✓  shipping… ✓", green: true },
       ];
@@ -517,7 +517,7 @@
       if (message.length < 10) { setErr("message", "Message should be at least 10 characters."); ok = false; }
       if (!ok) return;
 
-      const body = `Hi Van,\n\n${message}\n\n— ${name}\n${email}`;
+      const body = `Hi Van,\n\n${message}\n\n${name}\n${email}`;
       window.location.href =
         `mailto:zanguevan31@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 

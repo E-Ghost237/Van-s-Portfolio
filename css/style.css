@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════════════════════
-   VAN NISTEROOYL — PORTFOLIO
+   VAN NISTEROOYL · PORTFOLIO
    Design system: deep-space dark · cyan → violet → fuchsia gradients
    Type: Space Grotesk (display) · Inter (body) · JetBrains Mono (code)
    ════════════════════════════════════════════════════════════════════ */
@@ -946,10 +946,10 @@ html { scrollbar-width: thin; scrollbar-color: rgba(129, 140, 248, 0.55) var(--b
 
 .project {
   display: grid;
-  grid-template-columns: 1.04fr 1fr;
+  grid-template-columns: 0.8fr 1.2fr;
   gap: clamp(28px, 4vw, 52px);
   align-items: center;
-  padding: clamp(30px, 4.5vw, 50px) 0;
+  padding: clamp(26px, 3.5vw, 40px) 0;
   perspective: 1200px;
 }
 .project + .project { border-top: 1px solid var(--border-soft); }
@@ -972,6 +972,7 @@ html { scrollbar-width: thin; scrollbar-color: rgba(129, 140, 248, 0.55) var(--b
 }
 .project__media img {
   width: 100%;
+  height: auto;
   aspect-ratio: 16 / 10;
   object-fit: cover;
   transform: scale(1.012);
@@ -1007,6 +1008,7 @@ html { scrollbar-width: thin; scrollbar-color: rgba(129, 140, 248, 0.55) var(--b
 }
 .project__media:hover .project__shine { transform: translateX(130%); }
 
+.project:nth-child(even) { grid-template-columns: 1.2fr 0.8fr; }
 .project:nth-child(even) .project__media { order: 2; }
 .project:nth-child(even) .project__info { order: 1; }
 
@@ -1023,13 +1025,13 @@ html { scrollbar-width: thin; scrollbar-color: rgba(129, 140, 248, 0.55) var(--b
 .project__meta .sep { color: var(--faint); }
 
 .project__title {
-  margin: 0 0 12px;
-  font: 700 clamp(22px, 2.6vw, 27px) var(--font-display);
+  margin: 0 0 10px;
+  font: 700 clamp(21px, 2.3vw, 24px) var(--font-display);
   letter-spacing: -0.015em;
 }
-.project__desc { margin: 0 0 20px; color: var(--muted); font-size: 15px; }
+.project__desc { margin: 0 0 18px; color: var(--muted); font-size: 14.5px; }
 
-.tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; padding: 0; }
+.tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; padding: 0; }
 .tags li {
   padding: 5px 11px;
   border-radius: 9px;
@@ -1198,7 +1200,7 @@ html.js.is-loaded [data-hero] {
 .no-js #typed::before { content: "Full-Stack Developer"; }
 .no-js .caret { display: none; }
 .no-js .terminal__body::before {
-  content: "$ whoami\A van — full-stack developer · douala, cm\A $ cat stack.txt\A angular · next.js · fastapi · laravel · flutter\A $ ls ~/infra\A docker/  terraform/  aws/  linux/  git/\A $ ai --status\A ● online — multiplier: excellent";
+  content: "$ whoami\A van · full-stack developer · douala, cm\A $ cat stack.txt\A angular · next.js · fastapi · laravel · flutter · postgres\A $ ls ~/infra\A docker/  terraform/  aws/  linux/  git/\A $ ai --status\A ● online · multiplier: excellent";
   white-space: pre-wrap;
   color: #8fa0bd;
 }
@@ -1218,7 +1220,8 @@ html.js.is-loaded [data-hero] {
   .about__grid { grid-template-columns: 1fr; }
   .terminal { position: static; }
   .contact__grid { grid-template-columns: 1fr; gap: 40px; }
-  .project { grid-template-columns: 1fr; gap: 24px; }
+  .project,
+  .project:nth-child(even) { grid-template-columns: 1fr; gap: 24px; }
   .project:nth-child(even) .project__media { order: 0; }
   .fchip--1 { left: -4%; }
   .fchip--2 { right: -4%; }
