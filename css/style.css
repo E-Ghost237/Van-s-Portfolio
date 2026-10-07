@@ -946,7 +946,7 @@ html { scrollbar-width: thin; scrollbar-color: rgba(129, 140, 248, 0.55) var(--b
 
 .project {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-columns: 0.62fr 1.38fr;
   gap: clamp(28px, 4vw, 52px);
   align-items: center;
   padding: clamp(26px, 3.5vw, 40px) 0;
@@ -1008,7 +1008,7 @@ html { scrollbar-width: thin; scrollbar-color: rgba(129, 140, 248, 0.55) var(--b
 }
 .project__media:hover .project__shine { transform: translateX(130%); }
 
-.project:nth-child(even) { grid-template-columns: 1.2fr 0.8fr; }
+.project:nth-child(even) { grid-template-columns: 1.38fr 0.62fr; }
 .project:nth-child(even) .project__media { order: 2; }
 .project:nth-child(even) .project__info { order: 1; }
 
@@ -1029,7 +1029,7 @@ html { scrollbar-width: thin; scrollbar-color: rgba(129, 140, 248, 0.55) var(--b
   font: 700 clamp(21px, 2.3vw, 24px) var(--font-display);
   letter-spacing: -0.015em;
 }
-.project__desc { margin: 0 0 18px; color: var(--muted); font-size: 14.5px; }
+.project__desc { margin: 0 0 18px; color: var(--muted); font-size: 14.5px; max-width: 62ch; }
 
 .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; padding: 0; }
 .tags li {
@@ -1222,6 +1222,7 @@ html.js.is-loaded [data-hero] {
   .contact__grid { grid-template-columns: 1fr; gap: 40px; }
   .project,
   .project:nth-child(even) { grid-template-columns: 1fr; gap: 24px; }
+  .project__media { max-width: 540px; }
   .project:nth-child(even) .project__media { order: 0; }
   .fchip--1 { left: -4%; }
   .fchip--2 { right: -4%; }
